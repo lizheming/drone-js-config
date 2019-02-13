@@ -8,10 +8,9 @@ module.exports = function ({ server, token }) {
 
   return async (ctx, next) => {
     const {
-      Repo: { Namespace, Name, Config: filePath },
+      Repo: { Slug: projectId, Config: filePath },
       Build: { After: ref }
-    } = ctx.query;
-    const projectId = Namespace + '/' + Name;
+    } = ctx.request.body;
 
     ctx.content = await gitlab.RepositoryFiles.showRaw(projectId, filePath, ref);
 

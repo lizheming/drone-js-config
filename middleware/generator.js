@@ -6,13 +6,14 @@ module.exports = async function generator(ctx) {
     return;
   }
 
-  const data = vm.runInContext(ctx.content, {});
-  const docs = yaml.stringify(data);
-
-  ctx.setHeader('content-type', 'application/json');
+  const context = vm.createContext({ module, require });
+  let data = vm.runInContext(ctx.content, context);
+  if (!Array.isArray(data)) {
+    data = [data];
+  }
+  const docs = data.map(doc => yaml.stringify(doc)).join('\n');
+  ctx.set('content-type', 'application/json');
   ctx.body = JSON.stringify({
-    Data: Array.isArray(docs) ? docs.join('\n') : docs
+    Data: docs
   });
-
-  next();
 }

@@ -17,9 +17,6 @@ let {
 if (!PLUGIN_ADDRESS) {
   PLUGIN_ADDRESS = 3000;
 }
-if (!GITHUB_SERVER) {
-  GITHUB_SERVER = 'https://github.com';
-}
 if (!PLUGIN_SECRET) {
   debug('missing secret key');
 }
@@ -27,13 +24,9 @@ if (!GITHUB_TOKEN) {
   debug('missing github token');
 }
 
-const vcs = new VCS({
-  token: GITHUB_TOKEN,
-  server: GITHUB_SERVER
-});
 const server = createServer([
   signature(PLUGIN_SECRET),
-  vcs,
+  VCS({ server: GITHUB_SERVER, token: GITHUB_TOKEN }),
   generator
 ]);
 server.listen(PLUGIN_ADDRESS);
