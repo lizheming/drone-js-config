@@ -1,0 +1,26 @@
+{
+  "name": "drone-js-config",
+  "version": "0.0.1",
+  "description": "Drone extensions to support javascript configuration files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "drone",
+    "extension",
+    "js",
+    "configuration"
+  ],
+  "author": "lizheming <i@imnerd.org>",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^16.15.0",
+    "bitbucket": "^1.8.1",
+    "gitlab": "^4.3.0",
+    "http-signature": "^1.2.0",
+    "json2yaml": "^1.1.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa2": "^2.0.0-alpha.7"
+  }
+}
