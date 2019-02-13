@@ -3,7 +3,7 @@ const yaml = require('json2yaml');
 
 module.exports = async function generator(ctx) {
   if (!ctx.content) {
-    return;
+    return ctx.throw(204);
   }
 
   const context = vm.createContext({ module, require });
