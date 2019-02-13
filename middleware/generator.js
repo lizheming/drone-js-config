@@ -1,7 +1,7 @@
 const vm = require('vm');
 const yaml = require('json2yaml');
 
-module.exports = async function (ctx) {
+module.exports = async function generator(ctx) {
   if (!ctx.content) {
     return;
   }

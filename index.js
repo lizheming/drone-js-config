@@ -1,7 +1,7 @@
 const { debuglog } = require('util');
 const createServer = require('./server');
 const signature = require('./middleware/signature');
-const VCS = require('./middleware/cvs/github');
+const VCS = require('./middleware/vcs/github');
 const generator = require('./middleware/generator');
 
 const debug = debuglog('drone-js-config');

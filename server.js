@@ -1,4 +1,4 @@
-const Koa = require('koa');
+const Koa = require('koa2');
 const bodyParser = require('koa-bodyparser');
 
 module.exports = function (middlewares = []) {

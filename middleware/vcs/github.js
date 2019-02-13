@@ -2,10 +2,11 @@ const Octokit = require('@octokit/rest');
 
 module.exports = function ({ server, token }) {
   const octokit = Octokit({
-    host: server || 'api.github.com'
-  }).authenticate({ type: 'token', token });
+    baseUrl: server || 'api.github.com',
+    auth: token
+  });
 
-  return async (ctx, next) => {
+  return async function github(ctx, next) {
     const {
       Repo: { Namespace: owner, Name: repo, Config: path },
       Build: { After: ref }
