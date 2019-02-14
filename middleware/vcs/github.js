@@ -11,10 +11,6 @@ module.exports = function ({ server, token }) {
       Build: { After: ref, Target }
     } = ctx.request.body;
 
-    if (!/\.js$/.test(path)) {
-      return ctx.throw(404);
-    }
-
     try {
       const resp = await octokit.repos.getContents({ owner, repo, path, ref });
       ctx.content = Buffer.from(resp.data.content, 'base64').toString('ascii');
