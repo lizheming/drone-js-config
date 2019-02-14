@@ -22,7 +22,8 @@ module.exports = function (opt) {
   }
 
   return async (ctx, next) => {
-    if (!/\.js$/.test(path)) {
+    const { repo: { config_path } } = ctx.request.body;
+    if (!/\.js$/.test(config_path)) {
       return ctx.throw(404);
     }
 

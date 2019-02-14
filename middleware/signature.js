@@ -7,7 +7,7 @@ module.exports = function (secret) {
       ctx.request.header.authorization = `Signature ${signature}`;
     }
 
-    const parsed = httpSignature.parseRequest(ctx.req);
+    const parsed = httpSignature.parseRequest(ctx.request);
     if (!httpSignature.verifyHMAC(parsed, secret)) {
       return ctx.throw(401);
     }
