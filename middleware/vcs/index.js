@@ -2,28 +2,30 @@ const github = require('./github');
 const gitlab = require('./gitlab');
 const bitbucket = require('./bitbucket');
 
-const services = { github, gitlab, bitbucket };
 module.exports = function (opt) {
-  let vcs = 'github';
-  let token = opt.GITHUB_TOKEN;
+  let service;
   if (opt.GITLAB_TOKEN) {
-    vcs = 'gitlab';
-    token = opt.GITLAB_TOKEN;
+    service = gitlab({
+      server: opt.GITLAB_SERVER,
+      token: opt.GITLAB_TOKEN
+    });
   } else if (opt.BITBUCKET_TOKEN) {
-    vcs = 'bitbucket';
-    token = opt.BITBUCKET_TOKEN;
+    service = bitbucket({
+      server: opt.BITBUCKET_SERVER,
+      token: opt.BITBUCKET_TOKEN
+    });
+  } else {
+    service = github({
+      server: opt.GITHUB_SERVER,
+      token: opt.GITHUB_TOKEN
+    });
   }
-
-  vcs = services[vcs]({
-    server: opt[vcs.toUpperCase() + '_SERVER'],
-    token
-  });
 
   return async (ctx, next) => {
     if (!/\.js$/.test(path)) {
       return ctx.throw(404);
     }
 
-    return vcs(ctx, next);
+    return service(ctx, next);
   }
 }
