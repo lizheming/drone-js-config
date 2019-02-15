@@ -1,5 +1,5 @@
 const vm = require('vm');
-const yaml = require('json2yaml');
+const yaml = require('yaml');
 
 module.exports = async function generator(ctx) {
   if (!ctx.content) {
@@ -11,7 +11,7 @@ module.exports = async function generator(ctx) {
   if (!Array.isArray(data)) {
     data = [data];
   }
-  const docs = data.map(doc => yaml.stringify(doc)).join('\n');
+  const docs = data.map(doc => yaml.stringify(doc)).join('\n---\n');
   ctx.set('content-type', 'application/json');
   ctx.body = JSON.stringify({
     Data: docs
