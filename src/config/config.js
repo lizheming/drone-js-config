@@ -1,5 +1,6 @@
 
 const {
+  PLUGIN_ADDRESS,
   PLUGIN_SECRET,
   GITHUB_SERVER,
   GITHUB_TOKEN,
@@ -36,7 +37,7 @@ if (GITLAB_TOKEN) {
 
 module.exports = {
   workers: 1,
-  port: 3000,
+  port: PLUGIN_ADDRESS || 3000,
   vcs,
   secret: PLUGIN_SECRET
 };

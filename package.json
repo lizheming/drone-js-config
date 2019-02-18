@@ -1,6 +1,6 @@
 {
   "name": "drone-js-config",
-  "description": "application created by thinkjs",
+  "description": "Drone extensions to support javascript configuration files",
   "version": "1.0.0",
   "author": "lizheming <i@imnerd.org>",
   "scripts": {
@@ -31,7 +31,7 @@
   "thinkjs": {
     "metadata": {
       "name": "drone-js-config",
-      "description": "application created by thinkjs",
+      "description": "Drone extensions to support javascript configuration files",
       "author": "lizheming <i@imnerd.org>",
       "babel": false
     },
