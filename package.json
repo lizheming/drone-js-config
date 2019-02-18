@@ -1,0 +1,43 @@
+{
+  "name": "drone-js-config",
+  "description": "application created by thinkjs",
+  "version": "1.0.0",
+  "author": "lizheming <i@imnerd.org>",
+  "scripts": {
+    "start": "node development.js",
+    "lint": "eslint src/",
+    "lint-fix": "eslint --fix src/"
+  },
+  "dependencies": {
+    "@octokit/rest": "^16.15.0",
+    "bitbucket": "^1.8.1",
+    "gitlab": "^4.3.0",
+    "http-signature": "^1.2.0",
+    "think-logger3": "^1.0.0",
+    "thinkjs": "^3.0.0",
+    "yaml": "^1.3.2"
+  },
+  "devDependencies": {
+    "think-watcher": "^3.0.0",
+    "eslint": "^4.2.0",
+    "eslint-config-think": "^1.0.0"
+  },
+  "repository": "https://github.com/lizheming/drone-js-config",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "readmeFilename": "README.md",
+  "thinkjs": {
+    "metadata": {
+      "name": "drone-js-config",
+      "description": "application created by thinkjs",
+      "author": "lizheming <i@imnerd.org>",
+      "babel": false
+    },
+    "projectName": "./test",
+    "template": "api",
+    "clone": false,
+    "isMultiModule": false
+  }
+}
