@@ -13,17 +13,17 @@ module.exports = class extends think.Controller {
 
     let service;
     if (GITLAB_TOKEN) {
-      service = this.service('gitlab')({
+      service = this.service('gitlab', {
         server: GITLAB_SERVER,
         token: GITLAB_TOKEN
       });
     } else if (BITBUCKET_TOKEN) {
-      service = this.service('bitbucket')({
+      service = this.service('bitbucket', {
         server: BITBUCKET_SERVER,
         token: BITBUCKET_TOKEN
       });
     } else {
-      service = this.service('github')({
+      service = this.service('github', {
         server: GITHUB_SERVER,
         token: GITHUB_TOKEN
       });

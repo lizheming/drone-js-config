@@ -60,7 +60,6 @@ Once the extension is installed and running, you need to modify your Drone serve
 
 ## Environment
 
-- `PLUGIN_ADRESS`
 - `PLUGIN_SECRET`
 - `GITHUB_SERVER`
 - `GITHUB_TOKEN`
