@@ -1,7 +1,7 @@
 {
   "name": "drone-js-config",
   "description": "Drone extensions to support javascript configuration files",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "lizheming <i@imnerd.org>",
   "scripts": {
     "start": "node development.js",
