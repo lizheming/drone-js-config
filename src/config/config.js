@@ -7,7 +7,10 @@ const {
   GITLAB_SERVER,
   GITLAB_TOKEN,
   BITBUCKET_SERVER,
-  BITBUCKET_TOKEN
+  BITBUCKET_TOKEN,
+  BITBUCKET_USERNAME,
+  BITBUCKET_PASSWORD,
+  BITBUCKET_APP_PASSWORD
 } = process.env;
 
 if (!PLUGIN_SECRET) {
@@ -21,11 +24,14 @@ if (GITLAB_TOKEN) {
     server: GITLAB_SERVER,
     token: GITLAB_TOKEN
   };
-} else if (BITBUCKET_TOKEN) {
+} else if (BITBUCKET_TOKEN || BITBUCKET_PASSWORD || BITBUCKET_APP_PASSWORD) {
   vcs = {
     name: 'bitbucket',
     server: BITBUCKET_SERVER,
-    token: BITBUCKET_TOKEN
+    token: BITBUCKET_TOKEN,
+    username: BITBUCKET_USERNAME,
+    password: BITBUCKET_PASSWORD,
+    app_password: BITBUCKET_APP_PASSWORD
   };
 } else {
   vcs = {
