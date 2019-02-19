@@ -1,11 +1,11 @@
 const util = require('util');
-const Requester = require('gogs-client/request');
+const Requester = require('gogs-client/lib/request');
 
 module.exports = class extends think.Service {
-  constructor({ server, username, password }) {
+  constructor({ server, token }) {
     super();
     this.client = Requester(server || 'https://try.gogs.io/api/v1');
-    this.user = { username, password };
+    this.user = { token };
   }
 
   async run({
@@ -19,6 +19,7 @@ module.exports = class extends think.Service {
     }
   }) {
     const url = util.format('/repos/%s/%s/raw/%s/%s', username, reponame, ref, path);
-    return this.client(url, this.user);
+    const resp = await this.client(url, this.user);
+    return resp.data;
   }
 };

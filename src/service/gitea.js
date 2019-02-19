@@ -1,4 +1,4 @@
-const Requester = require('gogs-client/request');
+const Requester = require('gogs-client/lib/request');
 const Gogs = require('./gogs');
 
 module.exports = class extends Gogs {
