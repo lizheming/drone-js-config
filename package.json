@@ -12,6 +12,7 @@
     "@octokit/rest": "^16.15.0",
     "bitbucket": "^1.8.1",
     "gitlab": "^4.3.0",
+    "gogs-client": "^0.5.2",
     "http-signature": "^1.2.0",
     "think-logger3": "^1.0.0",
     "thinkjs": "^3.0.0",
