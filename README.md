@@ -8,21 +8,27 @@ Drone extensions to support javascript configuration files, just like the follow
 ```js
 //.drone.js
 module.exports = [
-  {
-    kind: 'pipeline',
-    name: 'default',
+  Pipeline("node6", "node:6"),
+  Pipeline("node8", "node:8")
+];
+
+function Pipeline(name, image) {
+  return {
+    kind: "pipeline",
+    name,
 
     steps: [
       {
-        name: 'echo',
-        image: 'alpine',
+        name: "test",
+        image,
         commands: [
-          'echo "Hello World!"'
+          "npm install",
+          "npm test"
         ]
       }
     ]
-  }
-];
+  };
+}
 ```
 
 ## HOW TO USE
@@ -59,23 +65,28 @@ module.exports = [
 
 6. At last, you just add `.drone.js` file to your repo. It should exports an array drone config object.
     ```js
-    //.drone.js
     module.exports = [
-      {
-        kind: 'pipeline',
-        name: 'default',
+      Pipeline("node6", "node:6"),
+      Pipeline("node8", "node:8")
+    ];
+
+    function Pipeline(name, image) {
+      return {
+        kind: "pipeline",
+        name,
 
         steps: [
           {
-            name: 'echo',
-            image: 'alpine',
+            name: "test",
+            image,
             commands: [
-              'echo "Hello World!"'
+              "npm install",
+              "npm test"
             ]
           }
         ]
-      }
-    ];
+      };
+    }
     ```
 
 ## Settings
